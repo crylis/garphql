@@ -1,0 +1,29 @@
+type Member {
+  id: ID!
+  name: String!
+  position : PositionName!
+  worker : [List!]!
+}
+
+enum PositionName {
+  President
+  VicePresident
+  Treasurer
+  Secretary
+}
+
+type List {
+  name: String!
+  point : Int!
+}
+
+type Query {
+  getMember : [Member!]!
+  findMember(id: Int!): Member
+}
+
+type Mutation {
+    addMember(id: Int!, name: String!, position: String!, listName: String!, point: Int!): Member
+    editMember(id: Int!, name: String!, position: String!, listName: String!, point: Int!): Member
+    deleteMember(id: Int!): Boolean!
+}
